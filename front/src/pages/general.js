@@ -1,0 +1,44 @@
+import {React, useState } from 'react'
+import ShowMotors from '../componentes/ShowMotors.js'
+
+function General({data}){
+    const [counter, setCounter] = useState(0);
+    let pages = (data.posts.length/10>>0);
+    if((data.posts.length%10)==0 ) pages--;
+    //increase counter
+    const increase = () => {
+        if (counter<pages ) {
+        setCounter(count => count + 1);
+        }
+    };
+    //decrease counter
+    const decrease = () => {
+        if (counter===0)return;
+        if (counter<= data.posts.length) {
+        setCounter(count => count - 1);
+        }
+    };
+    //reset counter
+    const reset = () =>{
+        setCounter(0)
+    }
+
+    return(
+        <div className="container">
+            <ShowMotors data={data} count={counter} />
+            <p>{data.posts.length}</p>
+            <div className="counter">
+                <div className="btn_container">
+                    <button className="reset" onClick={reset}>Reset</button>
+                    <button className="control_btn" onClick={decrease}>-</button>
+                    <span className="counter_output">{counter+1}</span>
+                    <button className="control_btn" onClick={increase}>+</button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+
+export default General;

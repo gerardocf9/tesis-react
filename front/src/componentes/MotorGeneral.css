@@ -1,0 +1,32 @@
+
+/*   display principal */
+.card3{
+    width:24%;
+    float:left;
+    padding: 1rem;
+    text-align:center;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.Danger{
+    background-color: red;
+}
+
+.Caution{
+    background-color:yellow;
+}
+
+.Godd{
+    background-color:green;
+}
+
+
+.motor{
+    width:9rem;
+}
+
+
+
