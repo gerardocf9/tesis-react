@@ -1,10 +1,11 @@
 import {React, useState } from 'react'
 import ShowMotors from '../componentes/ShowMotors.js'
+import SearchBar from '../componentes/SearchBar.js'
 
-function General({data}){
+function General({data,ListMotores}){
     const [counter, setCounter] = useState(0);
     let pages = (data.posts.length/10>>0);
-    if((data.posts.length%10)==0 ) pages--;
+    if((data.posts.length%10)===0 ) pages--;
     //increase counter
     const increase = () => {
         if (counter<pages ) {
@@ -25,8 +26,8 @@ function General({data}){
 
     return(
         <div className="container">
-            <ShowMotors data={data} count={counter} />
-            <p>{data.posts.length}</p>
+            <SearchBar ListMotores ={ListMotores} />
+            <ShowMotors data={data}  count={counter} />
             <div className="counter">
                 <div className="btn_container">
                     <button className="reset" onClick={reset}>Reset</button>

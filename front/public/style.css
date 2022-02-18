@@ -1,0 +1,178 @@
+/*https://flatuicolors.com*/
+:root{
+    /* colors */
+    --l-red:#ff6b81;
+    --l--green:#7bed9f;
+    --l-yellow:#eccc68;
+    --d-red:#ff4757;
+    --d-green:#2ed573;
+    --d-yellow:#ffa502;
+
+    --gray1:#d1d8e0;
+    --gray2:#a5b1c2;
+    --gray3:#778ca3;
+    --gray4:#4b6584;
+
+    --l-blue:#45aaf2;
+    --d-blue:#2d98da;
+    --orange:#e8491d;
+
+    --background:#35424a;
+    /* speed animation */
+    --transition-speed: 600ms;
+
+    /* font */
+    font-size: 16px;
+    font-family:  'Roboto', sans-serif;
+}
+
+/*   global  */
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--gray1);
+    color: var(--gray1);
+}
+
+.container{
+    width: 99%;
+    padding: auto;
+    margin: auto;
+}
+.clr{
+    clear:both;
+}
+
+
+a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--gray1);
+}
+
+ul{
+   margin:0;
+   padding: 0;
+}
+
+
+footer{
+    clear:both;
+    background-color:var(--background);
+    height:6rem;
+    padding-top: 30px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+header{
+    padding-top: 30px;
+    min-height: 70px;
+    background-color:var(--background);
+    border-bottom: 5px solid var(--orange);
+}
+
+header h1{
+    float: left;
+    font-size: 50px;
+    margin: 0;
+    padding-left: 2rem;
+}
+
+header .types{
+    margin-right: 4rem;
+    float: right;
+}
+header li{
+    display: inline;
+    float: left;
+    padding: 20px 20px 0 10px;
+}
+
+header a{
+    font-size: 18px;
+}
+
+header a:hover{
+    color: #ccc;
+    font-weight:bold;
+}
+
+header p{
+    text-align: center;
+}
+
+/*  especifico */
+.active{
+    color: var(--orange);
+    font-weight: bold;
+    display:inline;
+}
+
+.comentario{
+    color: var(--orange);
+    font-weight: bold;
+    display:inline;
+    padding:1rem;
+}
+
+#main{
+    margin-left:2rem;
+    padding: 1rem;
+}
+
+
+
+
+
+/* Small screens */
+@media only screen and (max-width: 700px) {
+
+    header{
+        margin: 0;
+    }
+
+    #navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    #main {
+        margin: 0;
+    }
+
+}
+
+
+/* Large screens */
+@media only screen and (min-width: 700px) {
+
+    #navbar{
+        width: 5rem;
+        height: 100vh;
+        position: fixed;
+        background-color: var(--background);
+        transition: var(300ms);
+        /*    border-right: 5px solid var(--gray4);*/
+    }
+
+    #navbar:hover {
+        width: 16rem;
+    }
+
+    #navbar:hover .link-text {
+        display: inline;
+    }
+
+}
+
