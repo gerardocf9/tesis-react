@@ -4,7 +4,7 @@ function ShowMotors({data,count}){
     return(
         <div>
             {data.posts.map((elemento,indice)=>(
-                <div key = {elemento.IdMotor}>
+                <div className="card3" key = {elemento.IdMotor}>
                     {(indice>=count*10)&&(indice<10*(count+1))&&
                     <MotorGeneral  direccion={"especifica?idMotor="+elemento.IdMotor}  post={elemento} />
                     }

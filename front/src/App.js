@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
-import './App.css';
 import General from './pages/general.js';
+import Especifica from './pages/especifica.js';
 import data from './data/dataSensores.js'
 import listMotores from './data/listaMotores.js'
 
@@ -21,7 +21,9 @@ function App() {
 //onEveryTick(() =>window.location.reload(true) , 3e4);
   return (
     <div className="App">
-      <General data={data} ListMotores = {listMotores.IdMotor} />
+        <General data={data} ListMotores = {listMotores.IdMotor} />
+        <p>aa</p>
+        <Especifica data={data} idmotor="A2" grafica="logo192.png" />
     </div>
   );
 }
