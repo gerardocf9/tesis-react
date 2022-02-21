@@ -4,8 +4,8 @@ import SearchBar from '../componentes/SearchBar.js'
 
 function General({data,ListMotores}){
     const [counter, setCounter] = useState(0);
-    let pages = (data.posts.length/10>>0);
-    if((data.posts.length%10)===0 ) pages--;
+    let pages = (data.posts.length/12>>0);
+    if((data.posts.length%12)===0 ) pages--;
     //increase counter
     const increase = () => {
         if (counter<pages ) {
@@ -26,16 +26,16 @@ function General({data,ListMotores}){
 
     return(
         <div className="container">
-            <SearchBar ListMotores ={ListMotores} />
-            <ShowMotors data={data}  count={counter} />
-            <div className="counter">
-                <div className="btn_container">
-                    <button className="reset" onClick={reset}>Reset</button>
-                    <button className="control_btn" onClick={decrease}>-</button>
-                    <span className="counter_output">{counter+1}</span>
-                    <button className="control_btn" onClick={increase}>+</button>
-                </div>
+            <div className="search">
+                <SearchBar ListMotores ={ListMotores} />
             </div>
+            <div className="counter">
+                    <button className="btn_counter reset" onClick={reset}>Reset</button>
+                    <button className="btn_counter control_btn" onClick={decrease}>-</button>
+                    <span className="btn_counter counter_output">{counter+1}</span>
+                    <button className="btn_counter control_btn" onClick={increase}>+</button>
+            </div>
+            <ShowMotors data={data}  count={counter} />
         </div>
     )
 }

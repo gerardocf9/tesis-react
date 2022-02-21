@@ -5,7 +5,9 @@ const Sensor = ({data, id})=>{
     let promy = 0;
     let promz = 0;
     let acel = 0;
-    let lado
+    let lado;
+    //let idSe = BigInt(id);
+    console.log(id.toString(16))
     if(id>=0x100000000000000){
         if(id>=0x200000000000000){
             lado="Chumacera o acople";
@@ -52,7 +54,6 @@ const Tabla = ({data})=>{
     const rowsF = [];
     data.posts.forEach((elem,indice)=>{
         elem.IdSensor.forEach(sensor=>{
-            console.log(data.posts[indice])
         rowsF.push(<Sensor data={data.posts[indice]} id={sensor} />)
         })
     })

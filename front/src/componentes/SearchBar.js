@@ -18,10 +18,10 @@ const SearchBar = ({ListMotores})=>{
     };
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
+        <div className="SearchBar">
+            <form  onSubmit={onSubmit}>
                 <input id="name" ref={nameRef} type="text" />
-                <button type="submit">Buscar</button>
+                <button  type="submit">Buscar</button>
                 <p className="comentario">{msg}</p>
             </form>
         </div>

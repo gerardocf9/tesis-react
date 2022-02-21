@@ -4,7 +4,7 @@ const data = {
         {
             IdMotor:"a2451",
             Caracteristicas:"Datos del motor",
-            IdSensor:[1,72057594037927938],
+            IdSensor:[1,0x100000000000002],
             Data:[
                 {Aceleracion:0.1, IdSensorData:1,VelocidadX:3.7477076723150793,VelocidadY:1.199884729975562,VelocidadZ:2.665819286207451},
                 {Aceleracion:0.1, IdSensorData:1,VelocidadX:3.7477076723150793,VelocidadY:1.199884729975562,VelocidadZ:2.665819286207451},
@@ -26,7 +26,7 @@ const data = {
                 {Aceleracion:0.1, IdSensorData:72057594037927938,VelocidadX:6.95050961502154,VelocidadY:5.060506814086651,VelocidadZ:7.418744532866285},
                 {Aceleracion:0.1, IdSensorData:72057594037927938,VelocidadX:5.722503720549084,VelocidadY:7.600561612690519,VelocidadZ:7.1690340360997125},
                 {Aceleracion:0.1, IdSensorData:72057594037927938,VelocidadX:6.56931154787547,VelocidadY:3.114839675989643,VelocidadZ:8.724128109270069}],
-            Time:"2022-02-16T15:03:38.886064455-04:00"
+            Time:"2022-0204:00"
         },
 
         {
@@ -42,7 +42,7 @@ const data = {
         {
             IdMotor:"a21",
             Caracteristicas:"Datos del motor",
-            IdSensor:[2,2057594037927938],
+            IdSensor:[2,2057594037927938,0x200000000000002],
             Data:[
                 {Aceleracion:0.1, IdSensorData:2,VelocidadX:5.961625710699895,VelocidadY:7.003682312322665,VelocidadZ:3.9678409166198985},
                 {Aceleracion:0.1, IdSensorData:2,VelocidadX:4.279013267614916,VelocidadY:9.10709310499029,VelocidadZ:6.1311169073502665},
@@ -63,7 +63,7 @@ const data = {
                 {Aceleracion:0.1, IdSensorData:2057594037927938,VelocidadX:7.818653133616307,VelocidadY:8.146404752193924,VelocidadZ:9.205731302588855},
                 {Aceleracion:0.1, IdSensorData:2057594037927938,VelocidadX:6.95050961502154,VelocidadY:5.060506814086651,VelocidadZ:7.418744532866285},
                 {Aceleracion:0.1, IdSensorData:2057594037927938,VelocidadX:5.722503720549084,VelocidadY:7.600561612690519,VelocidadZ:7.1690340360997125},
-                {Aceleracion:0.1, IdSensorData:2057594037927938,VelocidadX:6.56931154787547,VelocidadY:3.114839675989643,VelocidadZ:8.724128109270069}],
+                {Aceleracion:0.1, IdSensorData:0x200000000000002,VelocidadX:6.56931154787547,VelocidadY:3.114839675989643,VelocidadZ:8.724128109270069}],
             Time:"2022-02-16T15:03:38.886064455-04:00"
         },
 

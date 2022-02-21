@@ -1,12 +1,21 @@
 /*https://flatuicolors.com*/
 :root{
     /* colors */
-    --l-red:#ff6b81;
-    --l--green:#7bed9f;
-    --l-yellow:#eccc68;
-    --d-red:#ff4757;
-    --d-green:#2ed573;
-    --d-yellow:#ffa502;
+    --red:#d13A32;
+    --green:#067302;
+    --yellow:#f5d03b;
+
+    --morado:#515a8c;
+    --negro:#222326;
+    --gris:#666a73;
+    --blanco:#ebeef2;
+    --azul:#254159;
+
+    --moradoClaro:#535fa6;
+    --azulClaro:#66b1f2;
+    --marron:#a6754b;
+
+
 
     --gray1:#d1d8e0;
     --gray2:#a5b1c2;
@@ -15,50 +24,26 @@
 
     --l-blue:#45aaf2;
     --d-blue:#2d98da;
-    --orange:#e8491d;
 
-    --background:#35424a;
-    /* speed animation */
-    --transition-speed: 600ms;
 
-    /* font */
-    font-size: 16px;
-    font-family:  'Roboto', sans-serif;
 }
+
 
 /*   global  */
+
 body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--gray1);
-    color: var(--gray1);
+    background-color: var(--gray4);
 }
-
-.container{
-    width: 99%;
-    padding: auto;
-    margin: auto;
-}
-.clr{
-    clear:both;
-}
-
-
-a{
-    text-decoration: none;
-    text-transform: capitalize;
-    color: var(--gray1);
-}
-
-ul{
-   margin:0;
-   padding: 0;
-}
-
 
 footer{
+    color: var(--blanco);
     clear:both;
-    background-color:var(--background);
+    background-color:var(--azul);
     height:6rem;
     padding-top: 30px;
     text-align: center;
@@ -67,11 +52,27 @@ footer{
 }
 
 header{
+    color: var(--blanco);
     padding-top: 30px;
     min-height: 70px;
-    background-color:var(--background);
-    border-bottom: 5px solid var(--orange);
+    background-color:var(--azul);
+    border-bottom: 5px solid var(--azulClaro);
 }
+
+.search{
+    width:90%;
+    padding:10px;
+    text-align:center;
+    background-color:var(--azul);
+    clear:both;
+}
+
+a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--gray1);
+}
+
 
 header h1{
     float: left;
@@ -103,25 +104,239 @@ header p{
     text-align: center;
 }
 
+ul{
+   margin:0;
+   padding: 0;
+}
+
+
+.container{
+    width: 99%;
+    padding: auto;
+    margin: auto;
+    clear:both;
+}
+
+.clr{
+    clear:both;
+}
+
 /*  especifico */
+
 .active{
-    color: var(--orange);
+    color: var(--azulClaro);
     font-weight: bold;
     display:inline;
 }
 
+input{
+    display: inline;
+    width:40%;
+    border: none;
+    border-radius: 0;
+
+    background-color: var(--gray1);
+    margin-right:20px;
+    margin-left:-50px;
+    padding:5px;
+}
+
+button{
+    background-color: var(--gray1);
+    padding:7px;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+
 .comentario{
-    color: var(--orange);
+    margin-left:10px;
+    color: var(--azulClaro);
     font-weight: bold;
     display:inline;
+    text-align:center;
     padding:1rem;
 }
 
 #main{
-    margin-left:2rem;
-    padding: 1rem;
+    box-sizing: border-box;
+    padding: 1rem 0.5rem 1rem 3rem;
 }
 
+
+.counter {
+    padding:10px 0;
+    margin: auto;
+    width: 90%;
+    text-align: center;
+}
+
+.counter_output {
+    font-size: 40px;
+    color: var(--blanco);
+}
+
+.btn_counter  {
+    display: inline;
+    margin: 10px;
+}
+
+.control_btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--gray1);
+    border: 1px solid var(--gray1);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.control_btn:hover, .reset:hover {
+    background-color: rgb(16, 0, 54);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(16, 0, 54);
+}
+
+.reset {
+    width: 100px;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--gray1);
+    border: 1px solid var(--gray1);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+
+.micro-motor{
+    width: 4rem;
+    margin:5px 4rem;
+    float:left;
+    display:inline;
+}
+
+h2{
+    color: white;
+}
+
+.Resumen h2{
+    padding:0.5rem 2rem 0 1rem;
+    margin:auto;
+    color:white;
+    float:left;
+    display:inline;
+}
+
+.LinkExhaustiva{
+    margin-left:7rem;
+    font-size: 20px;
+    padding:2rem;
+    display:block;
+    color:var(--azulClaro)
+}
+
+.Resumen{
+    margin-top:1rem;
+    width:90%;
+    padding:10px 3rem;
+    background-color:var(--azul);
+    height: 8rem;
+    box-sizing: border-box;
+}
+
+
+/*   display principal */
+
+.Fourier{
+    clear:both;
+}
+
+.Histograma{
+    clear:both;
+}
+.card3{
+    width:22%;
+    float:left;
+    padding: 0 1rem;
+    text-align:center;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.Danger{
+    background-color: var(--red);
+}
+
+.Caution{
+    background-color:var(--yellow);
+}
+
+.Godd{
+    background-color:var(--green);
+}
+
+
+/* ESTILO TABLAS EN GENERAL*/
+table {
+  padding: 5px 5px 5px 5px;
+  background: #006940;
+  max-width: 1000px;
+  margin: 50px auto 0;
+  box-shadow: 0 0 1em black;
+  border-radius: 6px;
+}
+
+caption {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+thead th {
+  font-weight: 700;
+  background:hsl(20, 60%, 20%);
+  color: #FFF!important;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+tr {
+  background:#008F58;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+  background: #00A365;
+}
+
+th, td {
+  color:whitesmoke;
+  text-align: center;
+  padding: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+table tr:hover {
+  background: #8a97a0;
+  cursor: grab;
+}
+tfoot tr {
+  background: none;
+}
+
+tfoot td {
+  padding: 10px 2px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #8a97a0;
+}
 
 
 
@@ -133,46 +348,6 @@ header p{
         margin: 0;
     }
 
-    #navbar {
-        bottom: 0;
-        width: 100vw;
-        height: 5rem;
-    }
-
-    .navbar-nav {
-        flex-direction: row;
-    }
-
-    .nav-link {
-        justify-content: center;
-    }
-
-    #main {
-        margin: 0;
-    }
-
 }
 
-
-/* Large screens */
-@media only screen and (min-width: 700px) {
-
-    #navbar{
-        width: 5rem;
-        height: 100vh;
-        position: fixed;
-        background-color: var(--background);
-        transition: var(300ms);
-        /*    border-right: 5px solid var(--gray4);*/
-    }
-
-    #navbar:hover {
-        width: 16rem;
-    }
-
-    #navbar:hover .link-text {
-        display: inline;
-    }
-
-}
 
