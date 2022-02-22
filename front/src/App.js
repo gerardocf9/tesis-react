@@ -27,8 +27,8 @@ function App() {
   return (
     <div >
         <General data={data} ListMotores = {listMotores.IdMotor} />
-        <Especifica data={data} idmotor="A2" grafica="logo192.png" />
-        <Exhaustiva data={data} idmotor="A2" histograma="logo192.png" fourier="logo192.png" />
+        <Especifica data={data} idmotor="A2" grafica="histograma.png" />
+        <Exhaustiva data={data} idmotor="A2" histograma="histograma.png" fourier="Dominios.png" />
     </div>
   );
 }

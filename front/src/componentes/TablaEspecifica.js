@@ -1,4 +1,6 @@
-//import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+//import bigInt from 'big-integer'
+//const bigInt = require("big-integer");
 
 const Sensor = ({data, id})=>{
     let promx = 0;
@@ -6,10 +8,9 @@ const Sensor = ({data, id})=>{
     let promz = 0;
     let acel = 0;
     let lado;
-    //let idSe = BigInt(id);
-    console.log(id.toString(16))
-    if(id>=0x100000000000000){
-        if(id>=0x200000000000000){
+    let idSe = id&0x0000ffffffffffff
+    if(id>=0x0001000000000000){
+        if(id>=0x0002000000000000){
             lado="Chumacera o acople";
         }else{
             lado="Libre";
@@ -28,7 +29,7 @@ const Sensor = ({data, id})=>{
      return(
         <tr key={id} >
             <th scope="col">{data.Time}</th>
-            <th scope="col">{id}</th>
+            <th scope="col">{idSe.toString(16)}</th>
             <th scope="col">{lado}</th>
             <th scope="col">{promy}</th>
             <th scope="col">{promx}</th>
@@ -40,15 +41,7 @@ const Sensor = ({data, id})=>{
 }
 
 /*
-        <ReactHTMLTableToExcel
-          id="button_table_No_Entregados"
-          className="btn_excel"
-          table="table_No_Entregados"
-          filename="table_No_Entregados"
-          sheet="table_No_Entregados"
-          buttonText="No entregados como excel"
-        />
-*/
+        */
 
 const Tabla = ({data})=>{
     const rowsF = [];
@@ -58,20 +51,31 @@ const Tabla = ({data})=>{
         })
     })
     return(
-        <table id="Tabla-Histograma">
-          <thead>
-            <tr>
-              <th scope="col">Fecha</th>
-              <th scope="col">Id Sensor</th>
-              <th scope="col">Lado</th>
-              <th scope="col">Vel Vertical</th>
-              <th scope="col">Vel Horizontal</th>
-              <th scope="col">Vel Axial</th>
-              <th scope="col">Aceleracion</th>
-            </tr>
-          </thead>
-          <tbody>{rowsF}</tbody>
-        </table>
+        <div className="tableContainer">
+<ReactHTMLTableToExcel
+          id="button_table_No_Entregados"
+          className="btn_excel"
+          table="Tabla-Histograma"
+          filename="Tabla-Histograma"
+          sheet="Tabla-Histograma"
+          buttonText="Histograma como excel"
+        />
+
+            <table id="Tabla-Histograma">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Id Sensor</th>
+                        <th scope="col">Lado</th>
+                        <th scope="col">Vel Vertical</th>
+                        <th scope="col">Vel Horizontal</th>
+                        <th scope="col">Vel Axial</th>
+                        <th scope="col">Aceleracion</th>
+                    </tr>
+                </thead>
+                <tbody>{rowsF}</tbody>
+            </table>
+        </div>
     )
 
 }

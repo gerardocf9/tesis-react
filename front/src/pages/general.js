@@ -2,6 +2,8 @@ import {React, useState } from 'react'
 import ShowMotors from '../componentes/ShowMotors.js'
 import SearchBar from '../componentes/SearchBar.js'
 
+
+
 function General({data,ListMotores}){
     const [counter, setCounter] = useState(0);
     let pages = (data.posts.length/12>>0);
