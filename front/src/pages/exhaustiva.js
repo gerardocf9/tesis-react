@@ -24,7 +24,7 @@ const Especifica= ({data, idmotor,histograma,fourier})=>{
         </div>
         <div className="Tabla-historica">
             <h2>Tabla resumen:</h2>
-            <Tabla data = {data}/>
+            <Tabla data = {data} idmotor={idmotor}/>
         </div>
     </div>
     )

@@ -292,6 +292,20 @@ img{
 
 
 /* ESTILO TABLAS EN GENERAL*/
+
+.btn_excel{
+    display: inline;
+    float: left;
+    background-color: var(--gray1);
+    padding:15px;
+    margin: 0 15px 15px 10px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: grab;
+}
+
+
 .tableContainer{
     overflow-x:scroll;
 }

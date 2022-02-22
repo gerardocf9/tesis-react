@@ -43,20 +43,21 @@ const Sensor = ({data, id})=>{
 /*
         */
 
-const Tabla = ({data})=>{
+const Tabla = ({data,idmotor})=>{
     const rowsF = [];
     data.posts.forEach((elem,indice)=>{
         elem.IdSensor.forEach(sensor=>{
         rowsF.push(<Sensor data={data.posts[indice]} id={sensor} />)
         })
     })
+    let filename = "Tabla-Histograma "+idmotor
+
     return(
         <div className="tableContainer">
 <ReactHTMLTableToExcel
-          id="button_table_No_Entregados"
           className="btn_excel"
           table="Tabla-Histograma"
-          filename="Tabla-Histograma"
+          filename={filename}
           sheet="Tabla-Histograma"
           buttonText="Histograma como excel"
         />
