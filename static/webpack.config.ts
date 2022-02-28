@@ -5,7 +5,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const config: Configuration = {
     //direccion de entrada
-  entry: "./src/index.tsx",
+  entry: "./src/pages/exhaustiva.jsx",
   module: {
     rules: [
       {
@@ -36,43 +36,10 @@ const config: Configuration = {
   output: {
     //path de salida dinamico, lleva a la carpeta static general.
     path: path.resolve(__dirname, "compilados"),
-    filename: "bundle.js",
+    filename: "exhaustiva.js",
   },
 
 };
 
 export default config;
 
-
-
-
-/*
-const path = require('path');
-
-module.exports = {
-  //directorio de frontend, ya compilado y funcional
-  //entry: './frontend/src/app.js',
-  //directorio de frontend, prueba entrada de datos
-  entry: './pages/generar_orden_despacho.js',
-
-  output: {
-    //path de salida dinamico, lleva a la carpeta static general.
-    path: path.join(__dirname, 'compilados'),
-
-    filename: 'generar_orden_despacho.js'
-  },
-   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      // New rules to load css
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
-};*/
