@@ -13,6 +13,7 @@ const Especifica= ({data, idmotor,histograma,fourier})=>{
             <MotorGeneral   direccion={"/"}  post={data.posts[0]} />
             </div>
             <a className="LinkExhaustiva" href={"/"}> Regresar a vista General</a>
+            <p className="caracteristicas"> {data.posts[0].caracteristicas}</p>
         </div>
         <div className="Fourier">
             <h2>Vista en frecuencia:</h2>

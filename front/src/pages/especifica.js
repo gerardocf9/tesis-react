@@ -12,6 +12,7 @@ const Especifica= ({data, idmotor,grafica})=>{
             <MotorGeneral   direccion={"exhaustiva?idmotor="+idmotor}  post={data.posts[0]} />
             </div>
             <a className="LinkExhaustiva" href={"exhaustiva?idmotor="+idmotor}>solicitar vista Exhaustiva</a>
+            <p className="caracteristicas"> {data.posts[0].caracteristicas}</p>
         </div>
         <div className="Histograma">
             <h2>Histograma:</h2>

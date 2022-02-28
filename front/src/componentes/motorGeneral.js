@@ -18,10 +18,10 @@ const MotorGeneral = ({direccion,post})=>{
     promz/=post.Data.length;
 
 
-    if((promx>6)||(promy>6)||(promz>6)||(acel>6)){
+    if((promx>=20)||(promy>=20)||(promz>=20)||(acel>=5)){
         cn = "Danger"
     }else{
-        if((promx>3)||(promy>3)||(promz>3)||(acel>3)){
+        if((promx>=12)||(promy>=12)||(promz>=12)||(acel>=2)){
             cn= "Caution"
         }else{
             cn ="Godd"
