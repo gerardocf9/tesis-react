@@ -8,7 +8,7 @@ const SearchBar = ({ListMotores})=>{
         e.preventDefault();
         ListMotores.forEach(motor=>{
             if (nameRef.current.value===motor) {
-                window.location.href = "especifica?idMotor="+motor;
+                window.location.href = "especifica?IdMotor="+motor;
             }
         })
         console.log({
@@ -158,7 +158,7 @@ const [lista,setLista] = useState({IdMotor:[]});
   useEffect(() => {
     getMotor();
     getList();
-    onEveryTick(()=>{getMotor();getList(); console.log("probando")}, 3e4);
+    onEveryTick(()=>{getMotor();getList()}, 3e4);
   },[]);
 
   return (

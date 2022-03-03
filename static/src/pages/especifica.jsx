@@ -138,7 +138,7 @@ const Especifica= ({data, idmotor,grafica})=>{
         <div className = "Resumen">
             <h2 >Estado del Motor:</h2>
             <div className="micro-motor">
-            <MotorGeneral   direccion={"exhaustiva?idmotor="+idmotor}  post={data.posts[0]} />
+            <MotorGeneral   direccion={"exhaustiva?IdMotor="+idmotor}  post={data.posts[0]} />
             </div>
             <a className="LinkExhaustiva" href={"exhaustiva?idmotor="+idmotor}>solicitar vista Exhaustiva</a>
             <p className="caracteristicas"> {data.posts[0].Caracteristicas}</p>
@@ -178,12 +178,18 @@ function App() {
 
     const [datos, setDatos] = useState(
         {   "posts":data.posts,
-            "idMotor":"Prueba",
-            "histograma":"http://127.0.0.1:8000/static/img/histograma.png"
+            "IdMotor":"Prueba",
+            "histograma":"/static/img/histograma.png"
         }
     );
    let getData = async () => {
-        let response = await fetch('http://127.0.0.1:8000/get_especifica')
+        let urlParams = new URLSearchParams(window.location.search);
+        let direccion = '/get_especifica?IdMotor='+urlParams.get('IdMotor')
+        let response = await fetch(direccion)
+        if (response.status>=400){
+            alert("Redireccion invalida, no existe el motor solicitado, error: "+response.status);
+            window.location.href = "/";
+        }
         let data = await response.json()
         setDatos(data)
     }
@@ -193,7 +199,7 @@ function App() {
 
   return (
     <div >
-        <Especifica data={datos} idmotor={datos.idMotor} grafica={datos.histograma} />
+        <Especifica data={datos} idmotor={datos.IdMotor} grafica={datos.histograma} />
     </div>
   );
 }

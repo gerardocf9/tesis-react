@@ -143,12 +143,12 @@ const Exhaustiva= ({data, idmotor,histograma,fourier})=>{
     return(
     <div className="container">
         <div className = "Resumen">
-            <h2>Estado del Motor</h2>
+            <h2 >Estado del Motor:</h2>
             <div className="micro-motor">
             <MotorGeneral   direccion={"/"}  post={data.posts[0]} />
             </div>
-            <a className="LinkExhaustiva" href={"/"}> Regresar a vista General</a>
-            <p className="caracteristicas"> {data.posts[0].caracteristicas}</p>
+            <a className="LinkExhaustiva" href={"/"}>Regresar a vista General</a>
+            <p className="caracteristicas"> {data.posts[0].Caracteristicas}</p>
         </div>
         <div className="Fourier">
             <h2>Vista en frecuencia:</h2>
@@ -189,7 +189,7 @@ function App() {
 
     const [datos, setDatos] = useState(
         {   "posts":data.posts,
-            "idMotor":"Prueba",
+            "IdMotor":"Prueba",
             "histograma":"static/img/histograma.png",
             "fourier":"static/img/Dominios.png"
 
@@ -197,7 +197,13 @@ function App() {
     );
 
    let getData = async () => {
-        let response = await fetch('/get_exhaustiva')
+        let urlParams = new URLSearchParams(window.location.search);
+        let direccion = '/get_exhaustiva?IdMotor='+urlParams.get('IdMotor')
+        let response = await fetch(direccion)
+        if (response.status>=400){
+            alert("Redireccion invalida, no existe el motor solicitado, error: "+response.status);
+            window.location.href = "/";
+        }
         let data = await response.json()
         setDatos(data)
     }
@@ -207,7 +213,7 @@ function App() {
 
   return (
     <div >
-        <Exhaustiva data={datos} idmotor="A2" histograma={datos.histograma} fourier={datos.fourier} />
+        <Exhaustiva data={datos} idmotor={datos.IdMotor} histograma={datos.histograma} fourier={datos.fourier} />
     </div>
   );
 }
