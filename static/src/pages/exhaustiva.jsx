@@ -107,9 +107,9 @@ const Tabla = ({data,idmotor})=>{
                         <th scope="col">Fecha</th>
                         <th scope="col">Id Sensor</th>
                         <th scope="col">Lado</th>
-                        <th scope="col">Vel Vertical</th>
-                        <th scope="col">Vel Horizontal</th>
-                        <th scope="col">Vel Axial</th>
+                        <th scope="col">Velocidad Vertical</th>
+                        <th scope="col">Velocidad Horizontal</th>
+                        <th scope="col">Velocidad Axial</th>
                         <th scope="col">Aceleracion</th>
                     </tr>
                 </thead>
@@ -119,7 +119,7 @@ const Tabla = ({data,idmotor})=>{
     )
 
 }
-const Exhaustiva= ({data, idmotor,histograma,fourier})=>{
+const Exhaustiva= ({data, idmotor,histogramaX,histogramaY,histogramaZ,histogramaA,fourier})=>{
     const [fou, setFou] = useState();
 
     const fetchImage2 = async () => {
@@ -128,18 +128,44 @@ const Exhaustiva= ({data, idmotor,histograma,fourier})=>{
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setFou(imageObjectURL);
     };
-    const [img, setImg] = useState();
 
-    const fetchImage = async () => {
-        const res = await fetch(histograma,{mode:'cors'});
+    const [hX, setX] = useState();
+    const [hY, setY] = useState();
+    const [hZ, setZ] = useState();
+    const [hA, setA] = useState();
+
+    const fetchImageX = async () => {
+        const res = await fetch(histogramaX,{mode:'cors'});
         const imageBlob = await res.blob();
         const imageObjectURL = URL.createObjectURL(imageBlob);
-        setImg(imageObjectURL);
+        setX(imageObjectURL);
+    };
+    const fetchImageY = async () => {
+        const res = await fetch(histogramaY,{mode:'cors'});
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setY(imageObjectURL);
+    };
+    const fetchImageZ = async () => {
+        const res = await fetch(histogramaZ,{mode:'cors'});
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setZ(imageObjectURL);
+    };
+    const fetchImageA = async () => {
+        const res = await fetch(histogramaA,{mode:'cors'});
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setA(imageObjectURL);
     };
     useEffect(() => {
+        fetchImageX();
+        fetchImageY();
+        fetchImageZ();
+        fetchImageA();
         fetchImage2();
-        fetchImage();
     }, []);
+
     return(
     <div className="container">
         <div className = "Resumen">
@@ -148,15 +174,18 @@ const Exhaustiva= ({data, idmotor,histograma,fourier})=>{
             <MotorGeneral   direccion={"/"}  post={data.posts[0]} />
             </div>
             <a className="LinkExhaustiva" href={"/"}>Regresar a vista General</a>
-            <p className="caracteristicas"> {data.posts[0].Caracteristicas}</p>
+            <p className="caracteristicas"> {data.posts[0].caracteristicas}</p>
         </div>
         <div className="Fourier">
             <h2>Vista en frecuencia:</h2>
             <img src={fou} alt={"Histograma del motor "+idmotor} width="500" height="600"/>
         </div>
         <div className="Histograma">
-            <h2>Histograma:</h2>
-            <img src={img} alt={"Histograma del motor "+idmotor} width="500" height="600"/>
+            <h2>Histogramas:</h2>
+            <img src={hX} alt={"Histograma del motor "+idmotor+" eje x"} width="500" height="600"/>
+            <img src={hY} alt={"Histograma del motor "+idmotor+" eje y"} width="500" height="600"/>
+            <img src={hZ} alt={"Histograma del motor "+idmotor+" eje z"} width="500" height="600"/>
+            <img src={hA} alt={"Histograma del motor "+idmotor+" aceleracion"} width="500" height="600"/>
         </div>
         <div className="Tabla-historica">
             <h2>Tabla resumen:</h2>
@@ -190,7 +219,7 @@ function App() {
     const [datos, setDatos] = useState(
         {   "posts":data.posts,
             "IdMotor":"Prueba",
-            "histograma":"static/img/histograma.png",
+            "histogramas":["/static/img/histograma.png","/static/img/histograma.png","/static/img/histograma.png","/static/img/histograma.png"],
             "fourier":"static/img/Dominios.png"
 
         }
@@ -213,7 +242,8 @@ function App() {
 
   return (
     <div >
-        <Exhaustiva data={datos} idmotor={datos.IdMotor} histograma={datos.histograma} fourier={datos.fourier} />
+        <Exhaustiva data={datos} idmotor={datos.IdMotor} fourier={datos.fourier} histogramaX={datos.histogramas[0]} histogramaY={datos.histogramas[1]} histogramaZ={datos.histogramas[2]} histogramaA={datos.histogramas[3]} />
+ />
     </div>
   );
 }

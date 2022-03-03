@@ -78,7 +78,7 @@ function ShowMotors({data,count}){
             {data.posts.map((elemento,indice)=>(
                 <div className="card3" key = {elemento.IdMotor}>
                     {(indice>=count*12)&&(indice<12*(count+1))&&
-                    <MotorGeneral  direccion={"especifica?idMotor="+elemento.IdMotor}  post={elemento} />
+                    <MotorGeneral  direccion={"especifica?IdMotor="+elemento.IdMotor}  post={elemento} />
                     }
                 </div>
             ))}
