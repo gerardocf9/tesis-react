@@ -183,7 +183,7 @@ const Especifica= ({data, idmotor,histogramaX,histogramaY,histogramaZ,histograma
 }
 
 
-function App() {
+function App2() {
     let urlParams = new URLSearchParams(window.location.search);
     let direccion = '/get_especifica?IdMotor='+urlParams.get('IdMotor')
     const [informacion, setInformacion] = useState({
@@ -233,11 +233,8 @@ function App() {
 return (
     <div >
 
-        {fetched == false && <div> <h1>Loading</h1> <div className="spin"></div> </div>  }
-        {fetched == true &&
-        // <Especifica data={informacion} idmotor={informacion.idMotor} histogramaX={informacion.histogramaX} histogramaY={informacion.histogramaY} histogramaZ={informacion.histogramaZ} histogramaA={informacion.histogramaA} />
+   <div> <h1>Loading</h1> <div className="spin"></div> </div>
             <Especifica data={informacion} idmotor={informacion.idMotor} histogramaX={informacion.histogramaX} histogramaY={informacion.histogramaY} histogramaZ={informacion.histogramaZ} histogramaA={informacion.histogramaA} />
-        }
 
     </div>
   );
@@ -245,7 +242,9 @@ return (
 
 
 
+export default App2
+/*
 ReactDOM.render(
     <App />,
     document.getElementById("root")
-);
+);*/

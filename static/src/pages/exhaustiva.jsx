@@ -195,55 +195,63 @@ const Exhaustiva= ({data, idmotor,histogramaX,histogramaY,histogramaZ,histograma
     )
 }
 
-const data = {
-    posts : [
-        {
-            IdMotor:"a2451",
-            Caracteristicas:"Datos del motor",
-            IdSensor:[1,0x0001000000000002],
-            Data:[
-                {Aceleracion:0.1, IdSensorData:0x0001000000000002,VelocidadX:5.199725846091611,VelocidadY:8.387704793802055,VelocidadZ:3.710072982564616},
-                {Aceleracion:0.1, IdSensorData:0x0001000000000002,VelocidadX:7.818653133616307,VelocidadY:8.146404752193924,VelocidadZ:9.205731302588855},
-                {Aceleracion:0.1, IdSensorData:0x0001000000000002,VelocidadX:6.95050961502154,VelocidadY:5.060506814086651,VelocidadZ:7.418744532866285},
-                {Aceleracion:0.1, IdSensorData:0x0001000000000002,VelocidadX:5.722503720549084,VelocidadY:7.600561612690519,VelocidadZ:7.1690340360997125},
-                {Aceleracion:0.1, IdSensorData:0x0001000000000002,VelocidadX:6.56931154787547,VelocidadY:3.114839675989643,VelocidadZ:8.724128109270069}],
-            Time:"2022-0204:00"
-        },
-    ]
-}
-
 
 function App() {
-// Call on 30 second reload page
-
-    const [datos, setDatos] = useState(
-        {   "posts":data.posts,
-            "IdMotor":"Prueba",
-            "histogramas":["/static/img/histograma.png","/static/img/histograma.png","/static/img/histograma.png","/static/img/histograma.png"],
-            "fourier":"static/img/Dominios.png"
-
+    let urlParams = new URLSearchParams(window.location.search);
+    const [informacion, setInformacion] = useState({
+    posts: [
+        {
+            IdMotor: "51",
+            caracteristicas: "Motor de prueba",
+            IdSensor: [
+                72057594037927938
+            ],
+            Data: [
+                 {
+                    "IdSensorData": 72057594037927938,
+                    "Aceleracion": 6.862355343089424,
+                    "VelocidadX": 7.976350367099966,
+                    "VelocidadY": 6.94645717070685,
+                    "VelocidadZ": 7.546426224150583
+                }
+            ],
+            Time: "2022-02-20T17:21:15.965000"
         }
-    );
+    ],
+    idMotor: "51",
+    Fourier: "/static/img/histograms/fourier_"+urlParams.get('IdMotor')+".png",
+    histogramaX: "/static/img/histograms/vxs_"+urlParams.get('IdMotor')+".png",
+    histogramaY: "/static/img/histograms/vys_"+urlParams.get('IdMotor')+".png",
+    histogramaZ: "/static/img/histograms/vzs_"+urlParams.get('IdMotor')+".png",
+    histogramaA: "/static/img/histograms/as_"+urlParams.get('IdMotor')+".png"
+});
 
-   let getData = async () => {
+    const [fetched,setFetched] = useState(false);
+    const actualizar= async ()=>{
         let urlParams = new URLSearchParams(window.location.search);
-        let direccion = '/get_exhaustiva?IdMotor='+urlParams.get('IdMotor')
-        let response = await fetch(direccion)
+        let direccion = 'get_exhaustiva?IdMotor='+urlParams.get('IdMotor')
+        let response = await fetch(direccion).then()
         if (response.status>=400){
             alert("Redireccion invalida, no existe el motor solicitado, error: "+response.status);
             window.location.href = "/";
         }
-        let data = await response.json()
-        setDatos(data)
+        let d = await response.json()
+        await setInformacion(d)
+        await setFetched(true)
+        await console.log(informacion)
     }
   useEffect(() => {
-        getData()
+    actualizar();
   },[]);
-
-  return (
+return (
     <div >
-        <Exhaustiva data={datos} idmotor={datos.IdMotor} fourier={datos.fourier} histogramaX={datos.histogramas[0]} histogramaY={datos.histogramas[1]} histogramaZ={datos.histogramas[2]} histogramaA={datos.histogramas[3]} />
- />
+
+        {fetched == false && <div> <h1>Loading</h1> <div className="spin"></div> </div>  }
+        {fetched == true &&
+        // <Especifica data={informacion} idmotor={informacion.idMotor} histogramaX={informacion.histogramaX} histogramaY={informacion.histogramaY} histogramaZ={informacion.histogramaZ} histogramaA={informacion.histogramaA} />
+        <Exhaustiva data={informacion} idmotor={informacion.idMotor} fourier={informacion.Fourier} histogramaX={informacion.histogramaX} histogramaY={informacion.histogramaY} histogramaZ={informacion.histogramaZ} histogramaA={informacion.histogramaA} />
+        }
+
     </div>
   );
 }
@@ -252,3 +260,7 @@ ReactDOM.render(
   <App />,
   document.getElementById("root")
 );
+
+
+
+
