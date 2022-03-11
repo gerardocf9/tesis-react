@@ -5,7 +5,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const config: Configuration = {
     //direccion de entrada
-  entry: "./src/pages/exhaustiva.jsx",
+  entry: "./src/pages/general.jsx",
   module: {
     rules: [
       {
@@ -36,7 +36,7 @@ const config: Configuration = {
   output: {
     //path de salida dinamico, lleva a la carpeta static general.
     path: path.resolve(__dirname, "compilados"),
-    filename: "exhaustiva2.js",
+    filename: "g.js",
   },
 
 };

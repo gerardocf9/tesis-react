@@ -47,7 +47,7 @@ const MotorGeneral = ({direccion,post})=>{
     promx/=post.Data.length;
     promy/=post.Data.length;
     promz/=post.Data.length;
-
+    acel/=post.Data.length;
 
     if((promx>=20)||(promy>=20)||(promz>=20)||(acel>=5)){
         cn = "Danger"
