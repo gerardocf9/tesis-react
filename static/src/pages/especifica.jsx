@@ -69,9 +69,14 @@ const Sensor = ({data, id})=>{
             acel += medicion.Aceleracion;
         }
     })
+    promx/=data.Data.length;
+    promy/=data.Data.length;
+    promz/=data.Data.length;
+    acel/=data.Data.length;
+    const fecha = new Date(data.Time*1000);
     return(
         <tr key={id} >
-            <th scope="col">{data.Time}</th>
+            <th scope="col">{fecha.toLocaleDateString("es-US")}</th>
             <th scope="col">{idSe.toString(16)}</th>
             <th scope="col">{lado}</th>
             <th scope="col">{promy}</th>
