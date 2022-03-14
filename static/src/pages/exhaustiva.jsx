@@ -60,18 +60,22 @@ const Sensor = ({data, id})=>{
     }else{
         lado ="Carga";
     }
+    let cant_mediciones = 0;
     data.Data.forEach(medicion=>{
         if(medicion.IdSensorData===id){
             promx+=medicion.VelocidadX;
             promy+=medicion.VelocidadY;
             promz+=medicion.VelocidadZ;
             acel += medicion.Aceleracion;
+            cant_mediciones++;
         }
     })
-    promx/=data.Data.length;
-    promy/=data.Data.length;
-    promz/=data.Data.length;
-    acel/=data.Data.length;
+    if(cant_mediciones>0){
+        promx/=cant_mediciones;
+        promy/=cant_mediciones;
+        promz/=cant_mediciones;
+        acel/=cant_mediciones;
+    }
     const fecha = new Date(data.Time*1000);
      return(
         <tr key={id} >
