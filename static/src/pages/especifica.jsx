@@ -23,10 +23,16 @@ const MotorGeneral = ({direccion,post})=>{
     acel/=post.Data.length;
 
 
-    if((promx>=20)||(promy>=20)||(promz>=20)||(acel>=5)){
+    let umbSuperiorAcel = post.UmbSuperiorAcel
+    let umbInferiorAcel = post.UmbInferiorAcel
+
+    let umbInferiorVel = post.UmbInferiorVel
+    let umbSuperiorVel = post.UmbSuperiorVel
+
+    if((promx>=umbSuperiorVel)||(promy>=umbSuperiorVel)||(promz>=umbSuperiorVel)||(acel>=umbSuperiorAcel)){
         cn = "Danger"
     }else{
-        if((promx>=12)||(promy>=12)||(promz>=12)||(acel>=2)){
+        if((promx>=umbInferiorVel)||(promy>=umbInferiorVel)||(promz>=umbInferiorVel)||(acel>=umbInferiorAcel)){
             cn= "Caution"
         }else{
             cn ="Godd"
@@ -176,6 +182,15 @@ const Especifica= ({data, idmotor,histogramaX,histogramaY,histogramaZ,histograma
                 </div>
                 <a className="LinkExhaustiva" href={"exhaustiva?IdMotor="+idmotor}>solicitar vista Exhaustiva</a>
                 <p className="caracteristicas"> {data.posts[0].caracteristicas}</p>
+                <div className="Umbrales ">
+                    <span className=" umbral_output">Umbrales Velocidad (mm(rms)/s): </span>
+                    <span className=" umbral_output">Inferior: {data.posts[0].UmbInferiorVel}, </span>
+                    <span className=" umbral_output">Superior: {data.posts[0].UmbSuperiorVel} </span>
+                    <br/>
+                    <span className=" umbral_output">Umbrales Aceleración (g):       </span>
+                    <span className=" umbral_output">Inferior: {data.posts[0].UmbInferiorAcel}, </span>
+                    <span className=" umbral_output">Superior: {data.posts[0].UmbSuperiorAcel} </span>
+                </div>
             </div>
             <div className="Histograma">
                 <h2>Histogramas:</h2>

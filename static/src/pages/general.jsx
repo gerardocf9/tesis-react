@@ -49,10 +49,16 @@ const MotorGeneral = ({direccion,post})=>{
     promz/=post.Data.length;
     acel/=post.Data.length;
 
-    if((promx>=20)||(promy>=20)||(promz>=20)||(acel>=5)){
+    let umbSuperiorAcel = post.UmbSuperiorAcel
+    let umbInferiorAcel = post.UmbInferiorAcel
+
+    let umbInferiorVel = post.UmbInferiorVel
+    let umbSuperiorVel = post.UmbSuperiorVel
+
+    if((promx>=umbSuperiorVel)||(promy>=umbSuperiorVel)||(promz>=umbSuperiorVel)||(acel>=umbSuperiorAcel)){
         cn = "Danger"
     }else{
-        if((promx>=12)||(promy>=12)||(promz>=12)||(acel>=2)){
+        if((promx>=umbInferiorVel)||(promy>=umbInferiorVel)||(promz>=umbInferiorVel)||(acel>=umbInferiorAcel)){
             cn= "Caution"
         }else{
             cn ="Godd"
