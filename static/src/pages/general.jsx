@@ -30,6 +30,9 @@ const SearchBar = ({ListMotores})=>{
     );
 };
 
+//Devuelve la imagen de motor general, svg con color de acuerdo al nivel de daño
+//el calculo de daño es mediante un premedio general de todas las mediciones y
+//la comparación es con los valores umbrales establecidos para cada motor
 const MotorGeneral = ({direccion,post})=>{
     let cn;
     let promx = 0;
@@ -77,6 +80,7 @@ const MotorGeneral = ({direccion,post})=>{
 }
 
 
+//Mostrar motores con paginación de 12 motores por ver
 function ShowMotors({data,count}){
 
     return(
@@ -92,6 +96,7 @@ function ShowMotors({data,count}){
     )
 }
 
+//union de toda la información + controlador de la paginación.
 function General({data,ListMotores}){
     const [counter, setCounter] = useState(0);
     let pages = (data.posts.length/12>>0);
@@ -130,6 +135,7 @@ function General({data,ListMotores}){
     )
 }
 
+//Llama automaticamente una funcion cada cierto periodo de tiempo
 function onEveryTick(fn, tick) {
   // Time to next tick
   let getTick = () => tick - (Date.now() % tick);

@@ -34,7 +34,7 @@ const config: Configuration = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    //path de salida dinamico, lleva a la carpeta static general.
+    //path de salida dinamico, lleva a la carpeta compilados
     path: path.resolve(__dirname, "compilados"),
     filename: "especifica5.js",
   },

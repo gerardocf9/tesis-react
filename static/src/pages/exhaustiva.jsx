@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
+//Devuelve la imagen de motor general, svg con color de acuerdo al nivel de daño
+//el calculo de daño es mediante un premedio general de todas las mediciones y
+//la comparación es con los valores umbrales establecidos para cada motor
 const MotorGeneral = ({direccion,post})=>{
     let cn;
     let promx = 0;
@@ -50,6 +53,8 @@ const MotorGeneral = ({direccion,post})=>{
 }
 
 
+//fila de la tabla dinamica, es un promedio de las mediciones del sensor, la fecha
+//de la medicion, el identificadore del sensor y su ubicación en el motor.
 const Sensor = ({data, id})=>{
     let promx = 0;
     let promy = 0;
@@ -134,6 +139,8 @@ const Tabla = ({data,idmotor})=>{
     )
 
 }
+//
+//union de la informacion anterior + graficas.
 const Exhaustiva= ({data, idmotor,histogramaX,histogramaY,histogramaZ,histogramaA,fourier})=>{
     const [fou, setFou] = useState();
 
